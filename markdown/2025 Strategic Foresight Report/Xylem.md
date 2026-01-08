@@ -45,6 +45,22 @@ status: PUBLISHED
 surname: Pentcheva
 trNumber: 272386931951-38
 userType: COMPANY
+llm_alignment_score: 7
+llm_verdict: Likely Ally
+llm_agreements: Both submissions prioritise resilience to climate change, emphasise
+  the need for EU-level strategic planning and preparedness, and call for increased
+  investment and targeted funding to shore up critical infrastructure. They also agree
+  that digitalisation and better data/early-warning systems are key enablers of resilience
+  and that strategic autonomy and competitiveness should be considered in planning.
+llm_disagreements: 'They diverge in scope and emphasis: one submission is sector-specific,
+  focused on operational measures for water efficiency, tariffs, national risk plans,
+  and financing instruments, while the other prioritises governance of emerging technologies,
+  precautionary research (e.g., SRM), democratic oversight, and pan‑EU institutional
+  reforms. There is also a difference in approach where one pushes mandatory technical
+  and market measures to accelerate deployment (e.g., volumetric tariffs, mandated
+  reuse, procurement/funding incentives) and the other stresses stronger regulation,
+  enforcement, public R&D and participatory foresight to manage systemic and intergenerational
+  risks.'
 ---
 
 ## Key highlights

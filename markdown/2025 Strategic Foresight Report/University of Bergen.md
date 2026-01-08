@@ -77,6 +77,22 @@ status: PUBLISHED
 surname: eide
 trNumber: 601223121882-35
 userType: ACADEMIC_RESEARCH_INSTITTUTION
+llm_alignment_score: 7
+llm_verdict: Likely Ally
+llm_agreements: Both submissions prioritise climate research, interdisciplinary work,
+  and enhanced research infrastructure (including data sharing and prediction systems)
+  to bolster long-term resilience. They also agree on the need to integrate social
+  sciences, humanities and psychology into technology and health research, address
+  youth and mental-health concerns, and strengthen EU research funding and strategic
+  foresight-oriented approaches.
+llm_disagreements: 'They differ on emphasis and policy instruments: one submission
+  pushes mission-driven, security-oriented measures (defence/tech sovereignty, procurement
+  reform, biofoundries, SRM research and centralized enforcement) and active governance
+  of emerging tech, while the other centres on boosting basic and curiosity-driven
+  research, prioritising university-led mechanisms (ERC/MSCA), civilian-only R&I and
+  safeguarding open competition with caution on large top-down partnerships. There
+  is also divergence on risk appetite for climate intervention research and the preferred
+  locus for dual-use work (security/defence channels versus civilian R&I separation).'
 ---
 
 Input from the University of Bergen to the Norwegian Ministry of Education and Research Nov. 2024 Ref. Ares(2025)2241858 - 19/03/2025

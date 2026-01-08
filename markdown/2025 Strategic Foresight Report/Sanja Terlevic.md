@@ -27,6 +27,21 @@ referenceInitiative: Ares(2025)1341453
 status: PUBLISHED
 surname: Terlevic
 userType: EU_CITIZEN
+llm_alignment_score: 8
+llm_verdict: Likely Ally
+llm_agreements: Both submissions prioritise strengthening democratic legitimacy of
+  policymaking through meaningful citizen inclusion and participatory processes, including
+  mechanisms for public engagement and deliberation. They also converge on the need
+  for adaptive, experimental policy tools (e.g., safe/controlled experimentation or
+  sandboxes) and agile policy frameworks that can respond quickly to emerging challenges
+  while maintaining democratic standards.
+llm_disagreements: Submission A places strong emphasis on specific technical and security
+  priorities — enforcement capacity, strategic R&D investment, procurement reform,
+  tech and defence sovereignty, biosecurity, and governance/research of climate interventions
+  (SRM) — and prescribes concrete institutional and funding measures. Submission B
+  is high-level and primarily concentrates on accessibility, co‑creation, and low‑risk
+  policy experimentation without advancing sector‑specific security, industrial or
+  scientific governance prescriptions.
 ---
 
 Ref. Ares(2025)2249600 - 19/03/2025

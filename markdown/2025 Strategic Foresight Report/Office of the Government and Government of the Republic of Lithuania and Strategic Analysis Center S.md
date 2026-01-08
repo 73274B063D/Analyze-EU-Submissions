@@ -32,6 +32,24 @@ scope: NATIONAL
 status: PUBLISHED
 surname: Mickus
 userType: PUBLIC_AUTHORITY
+llm_alignment_score: 7
+llm_verdict: Likely Ally
+llm_agreements: Both submissions prioritise strengthening EU resilience through improved
+  strategic foresight, early-warning/monitoring systems, and better use of technological
+  tools (including AI) to make foresight outputs more actionable. They agree on the
+  need to bolster productive capacities and supply-chain resilience, adopt whole-of-society
+  approaches to preparedness, and translate foresight into policy-relevant indicators
+  and response options.
+llm_disagreements: 'The submissions differ in emphasis: one places stronger weight
+  on intergenerational equity, mental-health impacts of digital technologies, governance
+  and research on climate interventions (SRM), biofoundries/biosecurity, and building
+  pan‑European R&D institutions and procurement reform; the other focuses more on
+  operational resilience across peacetime/crisis/conflict, harmonised resilience indicators,
+  civil‑protection baselines, empowering vulnerable groups (including gender dimensions),
+  and region‑specific security threats. They also diverge on time-horizon and use
+  of foresight: one stresses long-term systemic governance and precautionary research
+  agendas, while the other prioritises short-to-medium-term, actionable, iterative
+  foresight exercises and real‑time monitoring for policy response.'
 ---
 
 Ref. Ares(2025)2199326 - 18/03/2025

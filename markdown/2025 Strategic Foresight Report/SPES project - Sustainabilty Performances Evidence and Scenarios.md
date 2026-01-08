@@ -43,6 +43,26 @@ referenceInitiative: Ares(2025)1341453
 status: PUBLISHED
 surname: ''
 userType: ACADEMIC_RESEARCH_INSTITTUTION
+llm_alignment_score: 6
+llm_verdict: Neutral
+llm_agreements: Both submissions prioritise stronger climate action, long-term resilience
+  and intergenerational fairness, calling for improved strategic foresight, public
+  engagement, and evidence-based R&I that serves societal needs. They each stress
+  the need to strengthen governance, social protection (health, education, inclusion)
+  and to embed wellbeing considerations into policymaking. Both advocate more transparent,
+  participatory processes to align policy with long-term societal and environmental
+  objectives.
+llm_disagreements: Submission A emphasises technological sovereignty, defence and
+  competitiveness, large-scale mission-driven tech investments (AI, biofoundries)
+  and anticipatory research on climate interventions (SRM), alongside procurement
+  and enforcement reforms to mobilise capital and innovation. Submission B centres
+  on replacing GDP with a Sustainable Human Development framework, redistribution,
+  progressive taxation, community banking, social economy promotion and systemic limits
+  to growth; it prioritises transformative social and economic reforms over technology-
+  and defence-led industrial strategies. They also differ on the framing and tools
+  for mobilisation (market-facing investment and procurement reforms vs. fiscal/redistributive
+  instruments and mass advocacy) and on the relative emphasis given to researching
+  high-risk climate interventions.
 ---
 
 #### **Authors**

@@ -1,0 +1,8 @@
+pandas
+PyYAML
+python-dotenv
+openai
+fpdf2
+requests
+pymupdf4llm
+mammoth

@@ -9,6 +9,40 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from fpdf import FPDF
 import time
+import sys
+
+def safe_print(text):
+    """Safely prints text, handling Unicode encoding errors."""
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        # Fallback: encode to ASCII with error handling
+        print(text.encode('ascii', 'replace').decode('ascii'))
+
+def sanitize_for_pdf(text):
+    """Sanitizes text for PDF output by replacing problematic Unicode characters."""
+    if not text:
+        return ""
+    # Replace common problematic Unicode characters with ASCII equivalents
+    replacements = {
+        '\u2011': '-',  # Non-breaking hyphen
+        '\u2013': '-',  # En dash
+        '\u2014': '--',  # Em dash
+        '\u2018': "'",  # Left single quotation mark
+        '\u2019': "'",  # Right single quotation mark
+        '\u201C': '"',  # Left double quotation mark
+        '\u201D': '"',  # Right double quotation mark
+        '\u2026': '...',  # Ellipsis
+    }
+    result = str(text)
+    for unicode_char, ascii_char in replacements.items():
+        result = result.replace(unicode_char, ascii_char)
+    # Fallback: encode to ASCII with error handling for any remaining problematic characters
+    try:
+        result.encode('latin-1')
+    except UnicodeEncodeError:
+        result = result.encode('ascii', 'replace').decode('ascii')
+    return result
 
 
 # Configuration
@@ -79,7 +113,7 @@ def load_markdown_files(directory):
     raw_contents = []
     bodies = []
     
-    print(f"Found {len(files)} markdown files in {directory}")
+    safe_print(f"Found {len(files)} markdown files in {directory}")
     
     for f in files:
         try:
@@ -91,7 +125,7 @@ def load_markdown_files(directory):
                 raw_contents.append(content)
                 bodies.append(body)
         except Exception as e:
-            print(f"Error reading {f}: {e}")
+            safe_print(f"Error reading {f}: {e}")
             
     return filepaths, filenames, raw_contents, bodies
 
@@ -135,7 +169,7 @@ def compare_submissions(target_org, target_text, other_org, other_text):
         content = response.choices[0].message.content
         return json.loads(content)
     except Exception as e:
-        print(f"Error analyzing {other_org}: {e}")
+        safe_print(f"Error analyzing {other_org}: {e}")
         return {
             "alignment_score": 0,
             "alignment_summary": "Error",
@@ -149,7 +183,8 @@ def generate_pdf_report(df, target_org, output_path="llm_analysis_report.pdf"):
     class PDF(FPDF):
         def header(self):
             self.set_font('Helvetica', 'B', 16)
-            self.cell(0, 10, f'Stakeholder Alignment Report: {target_org}', ln=True, align='C')
+            safe_org = sanitize_for_pdf(target_org)
+            self.cell(0, 10, f'Stakeholder Alignment Report: {safe_org}', ln=True, align='C')
             self.ln(5)
         
         def footer(self):
@@ -159,6 +194,46 @@ def generate_pdf_report(df, target_org, output_path="llm_analysis_report.pdf"):
     
     pdf = PDF()
     pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+    
+    # Store link destinations for each organization
+    org_links = {}
+    
+    # Table of Contents
+    pdf.set_font('Helvetica', 'B', 16)
+    safe_org = sanitize_for_pdf(target_org)
+    pdf.cell(0, 10, 'Table of Contents', ln=True, align='C')
+    pdf.ln(10)
+    
+    pdf.set_font('Helvetica', 'B', 10)
+    pdf.set_fill_color(240, 240, 240)
+    pdf.cell(100, 8, 'Organization', border=1, fill=True)
+    pdf.cell(25, 8, 'Score', border=1, fill=True, align='C')
+    pdf.cell(65, 8, 'Verdict', border=1, fill=True, align='C')
+    pdf.ln()
+    
+    # Create links in ToC - we'll set destinations later
+    pdf.set_font('Helvetica', '', 9)
+    toc_y_start = pdf.get_y()
+    for idx, (_, row) in enumerate(df.iterrows()):
+        org_name = sanitize_for_pdf(str(row['Organization']))
+        org_key = str(row['Organization'])  # Use original for key
+        # Truncate long names for ToC display
+        display_name = org_name[:45] + '...' if len(org_name) > 45 else org_name
+        score = row['LLM_Alignment_Score']
+        verdict = sanitize_for_pdf(str(row['Verdict']))
+        
+        # Create link - we'll set the destination when we create the detailed section
+        link_id = pdf.add_link()
+        org_links[org_key] = link_id
+        
+        y_pos = pdf.get_y()
+        pdf.link(10, y_pos, 100, 6, link_id)
+        pdf.cell(100, 6, display_name, border=1)
+        pdf.cell(25, 6, str(score), border=1, align='C')
+        pdf.cell(65, 6, verdict, border=1, align='C')
+        pdf.ln()
+    
     pdf.add_page()
     
     # Summary stats
@@ -181,13 +256,24 @@ def generate_pdf_report(df, target_org, output_path="llm_analysis_report.pdf"):
     
     top_allies = df.head(10)
     for _, row in top_allies.iterrows():
+        org_key = str(row['Organization'])
+        if org_key in org_links:
+            # Set destination for this organization (page and y position)
+            pdf.set_link(org_links[org_key], page=pdf.page_no(), y=pdf.get_y())
+        
         pdf.set_font('Helvetica', 'B', 11)
         score = row['LLM_Alignment_Score']
-        pdf.cell(0, 8, f"{row['Organization']} - Score: {score}/10 ({row['Verdict']})", ln=True)
+        org_name = sanitize_for_pdf(row['Organization'])
+        verdict = sanitize_for_pdf(row['Verdict'])
+        pdf.cell(0, 8, f"{org_name} - Score: {score}/10 ({verdict})", ln=True)
         
         pdf.set_font('Helvetica', '', 9)
-        agreements = str(row['Agreements'])[:300] + '...' if len(str(row['Agreements'])) > 300 else str(row['Agreements'])
+        agreements = sanitize_for_pdf(str(row['Agreements']))
         pdf.multi_cell(0, 5, f"Agreements: {agreements}")
+        pdf.ln(2)
+        pdf.set_font('Helvetica', '', 9)
+        disagreements = sanitize_for_pdf(str(row['Disagreements']))
+        pdf.multi_cell(0, 5, f"Disagreements: {disagreements}")
         pdf.ln(2)
     
     # Top Opponents Section
@@ -199,14 +285,53 @@ def generate_pdf_report(df, target_org, output_path="llm_analysis_report.pdf"):
     
     top_opponents = df.tail(10).sort_values(by="LLM_Alignment_Score", ascending=True)
     for _, row in top_opponents.iterrows():
+        org_key = str(row['Organization'])
+        if org_key in org_links:
+            # Set destination for this organization (page and y position)
+            pdf.set_link(org_links[org_key], page=pdf.page_no(), y=pdf.get_y())
+        
         pdf.set_font('Helvetica', 'B', 11)
         score = row['LLM_Alignment_Score']
-        pdf.cell(0, 8, f"{row['Organization']} - Score: {score}/10 ({row['Verdict']})", ln=True)
+        org_name = sanitize_for_pdf(row['Organization'])
+        verdict = sanitize_for_pdf(row['Verdict'])
+        pdf.cell(0, 8, f"{org_name} - Score: {score}/10 ({verdict})", ln=True)
         
         pdf.set_font('Helvetica', '', 9)
-        disagreements = str(row['Disagreements'])[:300] + '...' if len(str(row['Disagreements'])) > 300 else str(row['Disagreements'])
+        agreements = sanitize_for_pdf(str(row['Agreements']))
+        pdf.multi_cell(0, 5, f"Agreements: {agreements}")
+        pdf.ln(2)
+        pdf.set_font('Helvetica', '', 9)
+        disagreements = sanitize_for_pdf(str(row['Disagreements']))
         pdf.multi_cell(0, 5, f"Disagreements: {disagreements}")
         pdf.ln(2)
+    
+    # Detailed sections for all organizations
+    pdf.add_page()
+    pdf.set_font('Helvetica', 'B', 14)
+    pdf.cell(0, 10, 'Detailed Analysis - All Organizations', ln=True)
+    pdf.ln(5)
+    
+    # Create detailed sections for all organizations
+    for _, row in df.iterrows():
+        org_key = str(row['Organization'])
+        if org_key in org_links:
+            # Set destination for this organization (page and y position)
+            pdf.set_link(org_links[org_key], page=pdf.page_no(), y=pdf.get_y())
+        
+        pdf.set_font('Helvetica', 'B', 11)
+        score = row['LLM_Alignment_Score']
+        org_name = sanitize_for_pdf(row['Organization'])
+        verdict = sanitize_for_pdf(row['Verdict'])
+        pdf.cell(0, 8, f"{org_name} - Score: {score}/10 ({verdict})", ln=True)
+        
+        pdf.set_font('Helvetica', '', 9)
+        agreements = sanitize_for_pdf(str(row['Agreements']))
+        pdf.multi_cell(0, 5, f"Agreements: {agreements}")
+        pdf.ln(2)
+        pdf.set_font('Helvetica', '', 9)
+        disagreements = sanitize_for_pdf(str(row['Disagreements']))
+        pdf.multi_cell(0, 5, f"Disagreements: {disagreements}")
+        pdf.ln(5)
     
     # Full table
     pdf.add_page()
@@ -225,14 +350,15 @@ def generate_pdf_report(df, target_org, output_path="llm_analysis_report.pdf"):
     # Table rows
     pdf.set_font('Helvetica', '', 8)
     for _, row in df.iterrows():
-        org_name = str(row['Organization'])[:40]
+        org_name = sanitize_for_pdf(str(row['Organization'])[:40])
+        verdict = sanitize_for_pdf(str(row['Verdict'])[:15])
         pdf.cell(80, 7, org_name, border=1)
         pdf.cell(20, 7, str(row['LLM_Alignment_Score']), border=1, align='C')
-        pdf.cell(30, 7, str(row['Verdict'])[:15], border=1, align='C')
+        pdf.cell(30, 7, verdict, border=1, align='C')
         pdf.ln()
     
     pdf.output(output_path)
-    print(f"PDF report saved to {output_path}")
+    safe_print(f"PDF report saved to {output_path}")
 
 def analyze_llm(base_dir, target_file, target_org, model):
     # Configuration
@@ -242,13 +368,13 @@ def analyze_llm(base_dir, target_file, target_org, model):
         if subdirs:
             base_dir = os.path.join("markdown", subdirs[0])
         else:
-            print("Markdown directory not found.")
+            safe_print("Markdown directory not found.")
             return
     
     # 1. Load Data
     filepaths, filenames, raw_contents, bodies = load_markdown_files(base_dir)
     if target_file not in filenames:
-        print("Target file not found.")
+        safe_print("Target file not found.")
         return
     
     target_index = filenames.index(target_file)
@@ -257,7 +383,7 @@ def analyze_llm(base_dir, target_file, target_org, model):
     # 2. Analyze all submissions
     indices_to_analyze = [i for i in range(len(filenames)) if i != target_index]
     
-    print(f"\n--- LLM Analysis of {len(indices_to_analyze)} submissions ---")
+    safe_print(f"\n--- LLM Analysis of {len(indices_to_analyze)} submissions ---")
     
     results = []
     cached_count = 0
@@ -275,11 +401,11 @@ def analyze_llm(base_dir, target_file, target_org, model):
         if has_llm_data(frontmatter):
             # Use cached data from frontmatter
             llm_result = get_llm_data_from_frontmatter(frontmatter)
-            print(f"[CACHED] {other_org}")
+            safe_print(f"[CACHED] {other_org}")
             cached_count += 1
         else:
             # Make LLM call and update the file
-            print(f"[API] Analyzing {other_org}...")
+            safe_print(f"[API] Analyzing {other_org}...")
             llm_result = compare_submissions(target_org, target_text, other_org, other_text)
             
             # Save results to frontmatter
@@ -298,7 +424,7 @@ def analyze_llm(base_dir, target_file, target_org, model):
         }
         results.append(result_entry)
     
-    print(f"\n--- Summary: {cached_count} cached, {api_count} API calls ---") 
+    safe_print(f"\n--- Summary: {cached_count} cached, {api_count} API calls ---") 
 
     # Save Results
     df = pd.DataFrame(results)
@@ -308,7 +434,7 @@ def analyze_llm(base_dir, target_file, target_org, model):
     
     csv_path = "llm_analysis_report.csv"
     df.to_csv(csv_path, index=False)
-    print(f"\nAnalysis complete. Saved to {csv_path}")
+    safe_print(f"\nAnalysis complete. Saved to {csv_path}")
     
     # Generate Markdown Summary
     md_path = "llm_analysis_summary.md"
@@ -332,7 +458,7 @@ def analyze_llm(base_dir, target_file, target_org, model):
             f.write(f"- **Agreements**: {row['Agreements']}\n")
             f.write(f"- **Disagreements**: {row['Disagreements']}\n\n")
             
-    print(f"Markdown summary saved to {md_path}")
+    safe_print(f"Markdown summary saved to {md_path}")
     
     # Generate PDF Report
     generate_pdf_report(df, target_org)

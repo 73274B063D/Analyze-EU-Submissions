@@ -36,6 +36,23 @@ scope: NATIONAL
 status: PUBLISHED
 surname: Lång
 userType: PUBLIC_AUTHORITY
+llm_alignment_score: 7
+llm_verdict: Likely Ally
+llm_agreements: Both submissions prioritise strengthening EU resilience through improved
+  strategic foresight, cross‑level cooperation, and continuity of critical services.
+  They share concern for societal wellbeing, trust, protection of vulnerable groups,
+  and the need for robust digital resilience and data protection for health and social
+  systems. Both call for better integration of foresight into policy processes and
+  for mechanisms that ensure continuity of essential public functions in crises.
+llm_disagreements: 'Submission A emphasises high‑level technological and geopolitical
+  priorities—AI and R&D leadership, procurement reform, defence and tech sovereignty,
+  biosecurity, and active research/governance on climate interventions (SRM) and early‑warning
+  systems. Submission B focuses on operational public‑service resilience: continuity
+  of payments, national agency involvement in foresight, pragmatic interoperability,
+  GDPR compliance, and cyber‑security of health and social databases. In short, A
+  is oriented toward strategic, tech‑driven and security‑focused instruments; B is
+  focused on service delivery, legal safeguards, and institutional continuity at national
+  level.'
 ---
 
 [Lausunto] Ref. Ares(2025)2200137 - 18/03/20251 (2)

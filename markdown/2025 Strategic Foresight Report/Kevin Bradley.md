@@ -42,6 +42,23 @@ referenceInitiative: Ares(2025)1341453
 status: PUBLISHED
 surname: Bradley
 userType: EU_CITIZEN
+llm_alignment_score: 7
+llm_verdict: Likely Ally
+llm_agreements: Both submissions recognise a more fragmented, geopolitically volatile
+  2040 and the need to strengthen EU strategic autonomy through supply-chain diversification,
+  trade and defence tools, and enhanced cyber/data security. They also agree climate
+  change is a central resilience challenge requiring large-scale adaptation, energy
+  system transformation and investments (including carbon removal/advanced energy
+  options) as well as renewed focus on food, health and critical-industrial resilience.
+llm_disagreements: 'They differ on priorities and approaches: one submission foregrounds
+  democratic safeguards, regulatory enforcement, mission-driven public research (e.g.,
+  pan‑European AI infrastructure), SRM research governance, mental‑health impacts
+  of digital tech, and biosecurity measures such as biofoundries; the other emphasises
+  industrial-scale responses — greater domestic resource extraction, circularity,
+  trade defence, stronger military/defence posture, and pragmatic acceptance of conservative
+  regulation slowing some bio-innovations. These differences reflect contrasting emphasis
+  on precautionary governance and societal/ethical issues versus more realpolitik,
+  resource- and industry-led resilience measures.'
 ---
 
 Ref. Ares(2025)2158355 - 17/03/2025

@@ -1,0 +1,365 @@
+---
+attachments:
+- documentId: 090166e52597093f
+  ersFileName: 251126_VDA-Stellungnahme_EU-Chips-Act_engl_final.pdf
+  fileName: 251126_VDA-Stellungnahme_EU-Chips-Act_engl_final.pdf
+  id: 27571487
+  isExternalizedInHrs: true
+  isRendered: true
+  pages: 7
+  pdfSize: 206381
+  size: 173317
+companySize: MEDIUM
+country: DEU
+dateFeedback: 2025/11/26 17:04:28
+feedback: In recent years, the German automotive industry has experienced one of the
+  most severe supply crises in its history. The pandemic and global supply bottlenecks
+  have highlighted the dependency on international value chains. Against this backdrop,
+  the European Chips Act was an important step toward securing semiconductor supply
+  and strengthening Europes technological sovereignty. The Chips Act 1.0 provided
+  valuable impulses, particularly through the expansion of manufacturing capacities
+  and the promotion of research clusters. Nevertheless, the ambitious goals were not
+  achieved. The target of acquiring a 20% market share by 2030 proved to be unrealistic.
+  Furthermore, clear interim milestones were missing. Third, the focus was placed
+  on high-performance chips, which only make up a small percentage of European demand.
+  The needs of key user industries, especially automotive and industrial manufacturers,
+  were not sufficiently addressed. In an international comparison, Europe remains
+  at a disadvantage. While China and the USA are investing billions to support their
+  semiconductor industries, European funding is insufficient to create a competitive
+  environment for investments. Targeted investments are indispensable for the automotive
+  industry, which relies on power semiconductors and specialized chips for electromobility,
+  automated driving, and digital connectivity. In addition to financial support, it
+  will be necessary to create better framework conditions such as faster approval
+  processes, competitive energy prices, a strong talent base, and a clear strategic
+  focus on European strengths - automotive, industrial applications, IoT, and power
+  semiconductors. This is the only way that long-term competitiveness can be ensured.
+  The Chips Act 1.0 raised awareness and initiated processes for investments. The
+  Chips Act 2.0 requires a more realistic, demand-driven, and accelerated approach.
+  Consideration of user industries and a focus on European core competencies is crucial
+  to building a resilient semiconductor economy and securing the future of the automotive
+  industry. Please see the attached position paper for more information.
+firstName: Eva
+id: 33185284
+initiativeTitle: Evaluation and Revision of the Chips Act Chips Act 20
+isDislikedByMe: false
+isLikedByMe: false
+isMyFeedback: false
+language: EN
+login: ''
+organization: German Association of the Automotive Industry (VDA)
+publication: WITHINFO
+publicationId: 20335
+publicationStatus: CLOSED
+referenceInitiative: Ares(2025)7293034
+status: PUBLISHED
+surname: Haffmans
+trNumber: 95574664768-90
+userType: BUSINESS_ASSOCIATION
+---
+
+Ref. Ares(2025)10337552 - 26/11/2025
+
+# Statement
+
+
+Request for consultation of the Directorate General for Communications Networks, Content and
+Technology / Unit C3 “Microelectronics and Photonics” regarding the review of the Chips Act (Chips
+Act 2)
+
+## **Introduction and Key Points**
+
+The German Association of the Automotive Industry (VDA) appreciates the opportunity to provide input
+during the consultations on the EU Chips Act (Chips Act 2.0). We would like to point out that, as an
+association, we cannot comment on individual member companies. Against this background, we wish to
+present our position on the current situation of the German automotive industry and the impact of the Chips
+Act on the industry itself as well as its critically important semiconductor ecosystem. This statement reflects
+the status as of November 26, 2025.
+
+The automotive industry is committed to the sustainable transformation of its products. Globally, German
+suppliers and manufacturers will invest approximately €320 billion in research and development between
+2025 and 2029. The focus of these investments is on electromobility, including battery technology,
+autonomous driving, and digitalization. Additionally, €220 billion will be invested during the same period in
+building new factories, new equipment and in the conversion of existing plants. Germany is the world’s
+second-largest production site for electric passenger cars. Around 40 percent of all cars manufactured in
+Germany are electric. The German automotive industry remains competitive in international markets with its
+products.
+
+A fundamental pillar of the transformation mentioned above is a resilient supply of semiconductors for our
+industry. During the COVID-19 pandemic and the associated chip crisis, the EU Chips Act made a valuable
+contribution to securing supply for the automotive industry.
+Strong impulses have been generated by expanding semiconductor manufacturing capacities and
+strengthening research clusters through funded pilot lines.
+
+However, the time has come to create a Chips Act 2.0 and to turn it into a simple and quickly accessible
+funding instrument that focuses on the actual semiconductor demand of the European industry. The Chips
+Act 2.0 should not only consider the European market’ demand but must also include and clearly address the
+European industry’s export requirements. German car manufacturers alone export around 35% of their
+products outside of the EU.
+
+As a major consumer of semiconductor products in Europe, the automotive industry intends to actively
+contribute to the developement of the European semiconductor ecosystem. From our perspective, the
+ecosystem must be fully included in the EU Commissions’s considerations. The ecosystem, encompasses
+basic research and education on semiconductor functions and materials, chip design, manufacturing stages
+
+
+1/7
+
+
+Registrierter Interessenvertreter R001243 EU-Transparenzregister-Nr. 95574664768-90
+
+
+for both active and passive components, manufacturing stages for printed circuit boards, as well as the
+recycling of assembled electronic products. In our activities relating to software defined vehicles (SDV) we
+will become involved in the early stages of chip design. SDV represents a significant change in vehicle
+architecture. Alongside ongoing trends in drivetrain electrification, advancements in infotainment/user
+interfaces, and activities for automated driving, we will continue to expand our partnership with the
+semiconductor industry in Europe.
+
+The semiconductor market can only be secured if the appropriate framework conditions for the automotive
+and semiconductor industries are established in Europe. Furthermore, the access to strategic raw materials
+and intermediate products must be enabled and safeguarded.
+In Europe, challenges include high energy prices, significant bureaucratic obstacles such as long and
+overcomplicated administrative procedures, difficult labor market conditions, and a lack of urgency in
+implementation. Geopolitically, significantly stronger engagement in partnerships and cooperation with allied
+states in key technology stacks, trade agreements, and clear industrial policy priorities is necessary.
+
+The automotive industry and the semiconductor industry, demonstrate the importance of functional, resilient,
+and global supply chains, which currently cannot be fully established competitively in Europe.
+
+
+2/7
+
+
+## **1. Chips Act 1.0 – A Retrospective**
+
+In recent years, the German automotive industry has experienced one of the most severe supply crises in its
+history. The pandemic and global supply bottlenecks have highlighted the dependency on international value
+chains. Against this backdrop, the European Chips Act was an important step toward securing
+semiconductor supply and strengthening Europe’s technological sovereignty.
+
+The Chips Act 1.0 provided valuable impulses, particularly through the expansion of manufacturing
+capacities and the promotion of research clusters. Nevertheless, the ambitious goals were not achieved. The
+target of acquiring a 20% market share by 2030 proved to be unrealistic. Furthermore, clear interim
+milestones were missing. Third, the focus was placed on high-performance chips, which only make up a
+small percentage of European demand. The needs of key user industries, especially automotive and
+industrial manufacturers, were not sufficiently addressed.
+In an international comparison, Europe remains at a disadvantage. While China and the USA are investing
+billions to support their semiconductor industries, European funding is insufficient to create a competitive
+environment for investments. Targeted investments are indispensable for the automotive industry, which
+relies on power semiconductors and specialized chips for electromobility, automated driving, and digital
+connectivity.
+
+In addition to financial support, it will be necessary to create better framework conditions such as faster
+approval processes, competitive energy prices, a strong talent base, and a clear strategic focus on European
+strengths - automotive, industrial applications, IoT, and power semiconductors.
+This is the only way that long-term competitiveness can be ensured.
+
+**Conclusion**
+
+The Chips Act 1.0 raised awareness and initiated processes for investments. The Chips Act 2.0 requires a
+more realistic, demand-driven, and accelerated approach. Consideration of user industries and a focus on
+European core competencies is crucial to building a resilient semiconductor economy and securing the
+future of the automotive industry.
+
+## **2. Chips Act 2.0 – An Opportunity for Strategic Realignment**
+
+
+The automotive industry supports the goal of strengthening the European semiconductor production base
+and increasing technological sovereignty. The Chips Act 2.0 offers the opportunity to overcome the
+weaknesses of the first act and to establish a forward-looking, resilient microelectronics policy. Merely
+increasing funding is not enough - what is needed is a strategic realignment with clear priorities, realistic
+objectives, and improved location conditions.
+
+To be effective, the Chips Act 2.0 must cover the entire semiconductor ecosystem encompassing research
+institutes and universities as well as all product categories and manufacturing stages necessary for the
+creation of semiconductor-based products. These product categories include active and passive components
+
+
+3/7
+
+
+as well as pinted circuit boards. Finally, the recyclings processes as an additional factor for a secure supply
+with raw materials and intermediate products must be considered.
+
+The automotive industry would strongly welcome a close alignment of funding under the Chips Act 2.0 with
+the intensified European efforts to establish and strengthen RISC-V initiatives. Such an approach would
+acknowledge and reflect the industry’s commitment.
+
+The automotive industry furthermore reaffirms its commitment to contribute to the semiconductor industry
+with chip design relating to Software defined vehices.
+
+**Strategic Focus on Key Technologies**
+
+Funding must concentrate on technologies and processes that are indispensable for key sectors such as the
+automotive industry:
+
+
+  - **Semiconductors** for electromobility and charging infrastructure
+
+  - **Chip design and advanced packaging** for complex vehicle architectures
+
+  - Technologies for **automated driving** and **software-defined vehicles**
+
+Europe should invest where it can become globally indispensable - not equally spread out into all
+technologies. Future technologies such as Edge AI and Industrial AI are crucial for the digital transformation
+of mobility but must be introduced with careful consideration. The Revision of the European Chips Act should
+furthermore be aligned with the ongoing activities of the ECAVA and in particular the development of a
+European hardware platform for the automotive industry.
+
+**Realistic Goals and Measurable Impact**
+
+The overall target of a 20% global market share remains unachievable under current conditions.
+Nevertheless, it can serve as a guideline for market segments in which European semiconductor
+manufacturers already hold leading positions, if supported by realistic interim targets and clear metrics. For
+the overall market, the goal must be to maintain or strengthen a 'relevant' market position. Progress must be
+transparently measurable to ensure the effectiveness of funding.
+
+**Improving Location Attractiveness and Investment Climate**
+
+Europe must become competitive for investments. High energy prices, complex and slow approval
+processes, and a shortage of skilled labor are key obstacles.
+
+
+  - **Tax incentives** similar to those in the USA could also be effective in Europe.
+
+  - **Investments** in **education and talent retention** are essential.
+
+  - **Sustainable energy** supply must be ensured to reduce production costs and achieve a clear
+footprint.
+
+  - The **significant reduction** and **simplification** of current **regulations** must be placed at the heart of
+all activities.
+
+
+4/7
+
+
+**Simplifying Funding Instruments**
+
+Programs such as IPCEI are currently too complex and difficult to access, especially for medium-sized
+companies. The automotive industry calls for the reduction of bureaucracy and the digitalization of processes
+to accelerate innovation. With the Chips Act 2.0, the European Commission should establish the foundation
+for a financial framework that enables start-ups and technology companies in the semiconductor ecosystem
+to secure significantly more private funding in Europe than is currently possible. This must effectively prevent
+these companies from relocating to other regions of the world.
+We support the inclusion of specific funding portfolios for deep-tech industry as part of the European
+Competitiveness Fund under the next multiannual financial framework.
+**Accelerating Research Transfer and Pilot Lines**
+
+Innovation arises from close interaction between research and industry. The automotive industry will continue
+to support this, but the process must be significantly accelerated.
+
+
+  - Funding projects must be designed to facilitate the transfer from research institutes to industrial
+application.
+
+  - Pilot lines for start-ups and SMEs are crucial for quickly validating developments and bringing them
+to market readiness. Barriers must be significantly lowered here.
+
+Clusters such as “Silicon Saxony” are good examples for a successful collaboration and are actively
+supported by the automotive industry.
+
+**Expanding International Cooperation**
+
+Geopolitical risks make resilient supply chains indispensable. Europe must expand strategic partnerships
+with countries such as Japan, South Korea, and ASEAN states to secure access to technologies and
+markets.
+A sole focus on Europe is unrealistic and does not meet the needs of either the automotive or the
+semiconductor industry. At the same time, cybersecurity, IP-Security and supply chain policies must be
+closely integrated to become a key success factor for the European semiconductor industry.
+
+**Creating Regulatory Clarity**
+
+Legal uncertainty must not jeopardize competitiveness. The Chips Act 2.0 should establish a clear legal
+framework that avoids conflicts between environmental and industrial policy. For example, exemptions in
+PFAS regulations for both the semiconductor and automotive industries must be considered. Otherwise,
+legal options must be created to enable compliance. Regulatory clarity must be supported by predictability
+for industry to further increase production capacity expansions in Europe.
+
+**Conclusion**
+
+The Chips Act 2.0 must be practical, user-oriented, and strategically aligned. The automotive industry is
+ready to contribute as a leading sector - particularly through early involvement in chip design and the
+development of new vehicle architectures.
+
+
+5/7
+
+
+contact person:
+
+
+**Dr. Marcus Bollig**
+
+Managing Director
+
+marcus.bollig@vda.de
+
+
+**Mr. Robert Cameron**
+
+Head of Department
+
+Production, Logistics and Aftermarket
+
+robert.cameron@vda.de
+
+**Mr. Uwe Volmer**
+
+Production Process Specialist
+
+Production, Logistics and Aftermarket
+
+uwe.volmer@vda.de
+
+
+
+6/7
+
+
+The German Association of the Automotive Industry (VDA) consolidates around
+620 manufacturers and suppliers under one roof. The members develop and
+produce cars and trucks, software, trailers, superstructures, buses, parts and
+accessories as well as new mobility offers.
+
+
+We represent the interests of the automotive industry and stand for modern,
+future-oriented multimodal mobility on the way to climate neutrality. The VDA
+represents the interests of its members in politics, the media, and social groups.
+
+
+We work for electric mobility, climate-neutral drives, the implementation of
+climate targets, securing raw materials, digitization and networking as well as
+German engineering. We are committed to a competitive business and
+innovation location. Our industry ensures prosperity in Germany: More than
+770,000 people are directly employed in the German automotive industry.
+
+
+The VDA is the organizer of the largest international mobility platform IAA
+MOBILITY and of IAA TRANSPORTATION, the world's most important
+platform for the future of the commercial vehicle industry.
+
+
+Publisher German Association of the Automotive Industry
+Behrenstraße 35, 10117 Berlin
+www.vda.de/en
+
+
+German Bundestag Lobby Register No.: R001243
+EU Transparency Register No.: 9557 4664 768-90
+
+
+Copyright German Association of the Automotive Industry
+
+
+Reprint, also in extracts, is only permitted,
+if the source is stated.
+
+
+Version Version 1.0, November 2025
+
+
+
+7/7
+
+

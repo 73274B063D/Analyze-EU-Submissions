@@ -11,7 +11,7 @@ This project consists of two main components that work together to automate the 
 
 ## Architecture
 
-![System Architecture Diagram](architecture.png)
+![System Architecture Diagram](structure.png)
 
 The system consists of two main scripts that work together:
 

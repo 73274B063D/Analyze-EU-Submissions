@@ -11,48 +11,23 @@ This project consists of two main components that work together to automate the 
 
 ## Architecture
 
-```mermaid
-flowchart TB
-    subgraph ScriptA["Script A: EU Consultation Scraper"]
-        URL1[EU Consultation URL 1]
-        URL2[EU Consultation URL 2]
-        API[EU 'Better Regulation' API]
-        DOWNLOAD[Download Attachments]
-        ATTACH[attachments/ folder<br/>PDF & DOCX files]
-        CONVERT[Convert & Inject Metadata<br/>pymupdf4llm, mammoth]
-        MARKDOWN[markdown/ folder<br/>MD files with YAML Frontmatter]
-    end
-    
-    subgraph ScriptB["Script B: LLM Alignment Analyzer"]
-        TARGET[Target Org/File & OpenAI Key]
-        PARSE[Parse & Identify Target]
-        LLM[LLM Analysis Loop<br/>Caching Check]
-        OPENAI[OpenAI API<br/>GPT Model]
-        AGGREGATE[Aggregate & Report<br/>pandas, fpdf]
-        CSV[CSV Data]
-        MDSUM[Markdown Summary]
-        PDF[PDF Report]
-    end
-    
-    URL1 --> API
-    API --> DOWNLOAD
-    URL2 --> DOWNLOAD
-    DOWNLOAD --> ATTACH
-    ATTACH --> CONVERT
-    CONVERT --> MARKDOWN
-    MARKDOWN -->|Data Handoff| PARSE
-    TARGET --> PARSE
-    PARSE --> LLM
-    MARKDOWN -->|Read/Update Frontmatter| LLM
-    LLM --> OPENAI
-    LLM --> AGGREGATE
-    AGGREGATE --> CSV
-    AGGREGATE --> MDSUM
-    AGGREGATE --> PDF
-    
-    style ScriptA fill:#e1f5ff
-    style ScriptB fill:#fff4e1
-```
+![System Architecture Diagram](architecture.png)
+
+The system consists of two main scripts that work together:
+
+**Script A: EU Consultation Scraper** (Blue section)
+- Takes EU Consultation URLs as input
+- Discovers and iterates through the EU 'Better Regulation' API
+- Downloads PDF and DOCX attachments
+- Converts files to markdown with YAML frontmatter metadata
+- Stores processed data in the `markdown/` folder
+
+**Script B: LLM Alignment Analyzer** (Orange section)
+- Takes target organization/file and OpenAI API key as input
+- Parses and identifies the target submission
+- Performs LLM analysis with caching (reads/updates frontmatter)
+- Uses OpenAI GPT models for comparison analysis
+- Aggregates results and generates reports in CSV, Markdown, and PDF formats
 
 ## Features
 

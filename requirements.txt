@@ -6,3 +6,7 @@ fpdf2
 requests
 pymupdf4llm
 mammoth
+sentence-transformers
+scikit-learn
+matplotlib
+seaborn

@@ -132,15 +132,23 @@ def load_markdown_files(directory):
 def compare_submissions(target_org, target_text, other_org, other_text):
     """Uses OpenAI to compare two submissions."""
     
+
+    # TODO:  Consider asking for asking for a range, confidence levels, 
+    # TODO:  Consider asking multiple LLMs. 
+    # TODO:  Arguments first, then score
+    # TODO:  highlight most interesting ideas
+    # TODO: Combine in one file, use in Gemini,
+    # Todo: VOSviewer 
+
     prompt = f"""
     You are an expert policy analyst. Compare the following two submissions to the EU Chips Act consultation.
     
     Task: Analyze the alignment between Submission A and Submission B.
     
     Output a JSON object with the following fields:
-    - "alignment_score": An integer from 0 (Completely Opposed) to 10 (Perfectly Aligned).
-    - "alignment_summary": A concise summary (2-3 sentences) of key points where they AGREE.
-    - "divergence_summary": A concise summary (2-3 sentences) of key points where they DISAGREE or have different priorities.
+    - "alignment_score": A percentage from 0% (Completely Opposed) to 100% (Perfectly Aligned).
+    - "alignment_summary": A concise summary (2-3 sentences) of key points this submission agrees or has similar priorities to our submission. 
+    - "divergence_summary": A concise summary (2-3 sentences) of key points this submission disagrees or has different priorities than our submission.
     - "verdict": One of "Likely Ally", "Neutral", "Opponent".
     
     For the alignment and divergence summaries, do not reference what the submission from our organisation is about we know what is in there. Focus on where there is agreement, and where there is divergence.
@@ -171,7 +179,7 @@ def compare_submissions(target_org, target_text, other_org, other_text):
     except Exception as e:
         safe_print(f"Error analyzing {other_org}: {e}")
         return {
-            "alignment_score": 0,
+            "alignment_score": 0.0,
             "alignment_summary": "Error",
             "divergence_summary": f"Analysis failed: {e}",
             "verdict": "Error"
@@ -360,6 +368,28 @@ def generate_pdf_report(df, target_org, output_path="llm_analysis_report.pdf"):
     pdf.output(output_path)
     safe_print(f"PDF report saved to {output_path}")
 
+def setup_llm_output_directory(base_dir):
+    """Sets up output directory structure for LLM analysis based on the initiative."""
+    # Extract initiative name from base_dir
+    # base_dir is like "markdown/2025 Strategic Foresight Report"
+    initiative_name = os.path.basename(base_dir)
+    
+    # Create output directory structure
+    base_output_dir = "outputs"
+    os.makedirs(base_output_dir, exist_ok=True)
+    
+    # Create subdirectory for this initiative
+    # Sanitize initiative name for filesystem
+    safe_name = initiative_name.replace('/', '_').replace('\\', '_').replace(':', '_')
+    initiative_base_dir = os.path.join(base_output_dir, safe_name)
+    os.makedirs(initiative_base_dir, exist_ok=True)
+    
+    # Create LLM subdirectory
+    initiative_dir = os.path.join(initiative_base_dir, "llm")
+    os.makedirs(initiative_dir, exist_ok=True)
+    
+    return base_output_dir, initiative_dir, initiative_name
+
 def analyze_llm(base_dir, target_file, target_org, model):
     # Configuration
     if not os.path.exists(base_dir):
@@ -370,6 +400,11 @@ def analyze_llm(base_dir, target_file, target_org, model):
         else:
             safe_print("Markdown directory not found.")
             return
+    
+    # Setup output directories
+    base_output_dir, initiative_dir, initiative_name = setup_llm_output_directory(base_dir)
+    safe_print(f"\nOutput directory: {initiative_dir}")
+    safe_print(f"Initiative: {initiative_name}")
     
     # 1. Load Data
     filepaths, filenames, raw_contents, bodies = load_markdown_files(base_dir)
@@ -432,14 +467,15 @@ def analyze_llm(base_dir, target_file, target_org, model):
     # Sort by LLM Score
     df = df.sort_values(by="LLM_Alignment_Score", ascending=False)
     
-    csv_path = "llm_analysis_report.csv"
+    csv_path = os.path.join(initiative_dir, "llm_analysis_report.csv")
     df.to_csv(csv_path, index=False)
     safe_print(f"\nAnalysis complete. Saved to {csv_path}")
     
     # Generate Markdown Summary
-    md_path = "llm_analysis_summary.md"
+    md_path = os.path.join(initiative_dir, "llm_analysis_summary.md")
     with open(md_path, 'w', encoding='utf-8') as f:
-        f.write(f"# AI Analysis: Centre for Future Generations Alignment\n\n")
+        f.write(f"# AI Analysis: {target_org} Alignment\n\n")
+        f.write(f"**Initiative**: {initiative_name}\n\n")
         f.write(f"Analyzed {len(results)} submissions.\n\n")
         
         f.write("## Top Allies (High Alignment Score)\n")
@@ -461,7 +497,8 @@ def analyze_llm(base_dir, target_file, target_org, model):
     safe_print(f"Markdown summary saved to {md_path}")
     
     # Generate PDF Report
-    generate_pdf_report(df, target_org)
+    pdf_path = os.path.join(initiative_dir, "llm_analysis_report.pdf")
+    generate_pdf_report(df, target_org, pdf_path)
 
 if __name__ == "__main__":
     analyze_llm(base_dir, target_file, target_org, model)

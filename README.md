@@ -1,3 +1,6 @@
+## Disclaimer
+This code is vibe-coded. It works, but the structure is not robust and should not be relied upon.
+
 # EU Consultation Analysis Pipeline
 
 An automated system for scraping EU consultation submissions, processing attachments, and performing LLM-based alignment analysis to identify allies and opponents in policy consultations.
